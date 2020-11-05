@@ -9,7 +9,7 @@ const Footer = () => (
         <li>
           <a
             className="grey-text text-lighten-3"
-            href="https://github.com/rhul-compsoc/passport-client"
+            href="https://github.com/rhul-compsoc/passport"
           >
             passport on GitHub
           </a>
@@ -17,7 +17,7 @@ const Footer = () => (
         <li>
           <a
             className="grey-text text-lighten-3"
-            href="https://github.com/rhul-compsoc/passport"
+            href="https://github.com/rhul-compsoc/passport-client"
           >
             passport-client on GitHub
           </a>
