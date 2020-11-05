@@ -4,6 +4,7 @@ import { connect, ConnectedProps, DispatchProp } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { RootState } from "../../redux/reducers";
 import { getUserDetails, removeUserDetails } from "../../redux/thunks/auth";
+import compsoc from "url:./compsoc.svg";
 
 const mapState = (state: RootState) => ({
   auth: state.auth,
@@ -39,7 +40,11 @@ class Header extends Component<Props> {
         centerChildren
         brand={
           <Link className="brand-logo" to="/">
-            compsoc-passport
+            <img
+              alt="Computing Society Logo"
+              style={{ height: "24px" }}
+              src={compsoc}
+            />
           </Link>
         }
       >
