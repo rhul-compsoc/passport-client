@@ -5,24 +5,27 @@ const Footer = () => (
   <MaterialiseFooter
     copyrights="© 2020 Computing Society at Royal Holloway, University of London"
     links={
-      <ul>
-        <li>
-          <a
-            className="grey-text text-lighten-3"
-            href="https://github.com/rhul-compsoc/passport"
-          >
-            passport on GitHub
-          </a>
-        </li>
-        <li>
-          <a
-            className="grey-text text-lighten-3"
-            href="https://github.com/rhul-compsoc/passport-client"
-          >
-            passport-client on GitHub
-          </a>
-        </li>
-      </ul>
+      <>
+        <h5>Links</h5>
+        <ul>
+          <li>
+            <a
+              className="grey-text text-lighten-3"
+              href="https://github.com/rhul-compsoc/passport"
+            >
+              Passport on GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              className="grey-text text-lighten-3"
+              href="https://github.com/rhul-compsoc/passport-client"
+            >
+              Passport Frontend on GitHub
+            </a>
+          </li>
+        </ul>
+      </>
     }
     moreLinks={
       <a
