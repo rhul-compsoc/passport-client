@@ -1,12 +1,18 @@
 import React, { ChangeEvent, Component } from "react";
-import { Chip, Col, Container, ProgressBar, Row, Select, Table } from "react-materialize";
+import { Helmet } from "react-helmet";
+import {
+  Chip,
+  Col,
+  Container,
+  ProgressBar,
+  Row,
+  Select,
+  Table,
+} from "react-materialize";
 import { connect, ConnectedProps } from "react-redux";
 import { ApiResponse } from "../../entity/ApiResponse";
-import { CombineStyles } from "../../help/CombineStyles";
 import { xpToLevel } from "../../help/xpToLevel";
 import { RootState } from "../../redux/reducers";
-import styles from "./index.module.scss";
-import { Helmet } from 'react-helmet';
 
 const mapState = (state: RootState) => ({
   auth: state.auth,
@@ -82,16 +88,18 @@ class GuildPage extends Component<Props, State> {
       <Container>
         <Helmet title="Statistics" />
         <h1>Guild Statistics</h1>
-        {this.state.data === null &&
+        {this.state.data === null && (
           <Row>
             <Col s={12}>
               <ProgressBar />
             </Col>
           </Row>
-        }
+        )}
         {this.state.data?.ok === true && (
           <>
-            <Helmet title={`Statistics for ${this.state.data.data.guildName}`} />
+            <Helmet
+              title={`Statistics for ${this.state.data.data.guildName}`}
+            />
             <Row>
               <Col>
                 <img
@@ -141,15 +149,22 @@ class GuildPage extends Component<Props, State> {
                   .map((user, i) => (
                     <tr
                       key={user.memberIDString}
-                      className={CombineStyles(
-                        this.props.auth.user.connections.find(
-                          (connection) => connection.id === user.memberIDString
-                        ) && styles.you
-                      )}
+                      style={{
+                        backgroundColor:
+                          this.props.auth.user.connections.find(
+                            (connection) =>
+                              connection.id === user.memberIDString
+                          ) && "rgba(0,0,0,0.04)",
+                      }}
                     >
                       <td>
                         <img
-                          className={CombineStyles(styles.avatar, "z-depth-1")}
+                          className={"z-depth-1"}
+                          style={{
+                            width: "4em",
+                            height: "4em",
+                            objectFit: "cover",
+                          }}
                           src={
                             user.avatarURL ||
                             `https://cdn.discordapp.com/embed/avatars/${
@@ -158,9 +173,7 @@ class GuildPage extends Component<Props, State> {
                           }
                         ></img>
                       </td>
-                      <td>
-                        {i + 1}
-                      </td>
+                      <td>{i + 1}</td>
                       <td>
                         {user.username}#{user.discrim}
                         {user.nickname && (
@@ -183,7 +196,9 @@ class GuildPage extends Component<Props, State> {
         {this.state.data?.ok === false && (
           <>
             <p>{this.state.data.message}</p>
-            <pre className={styles.error}>{this.state.data.stack}</pre>
+            <pre className={styles.error} style={{ overflowX: "scroll" }}>
+              {this.state.data.stack}
+            </pre>
           </>
         )}
       </Container>

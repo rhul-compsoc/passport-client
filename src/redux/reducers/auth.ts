@@ -1,10 +1,10 @@
-import { ClientUser } from '../../entity/ClientUser';
-import { AuthActions, authActionTypes } from '../actions/auth';
+import { ClientUser } from "../../entity/ClientUser";
+import { AuthActions, authActionTypes } from "../actions/auth";
 
 interface AuthState {
-  isFetching: boolean,
-  user: ClientUser | null,
-  error: string | null,
+  isFetching: boolean;
+  user: ClientUser | null;
+  error: string | null;
 }
 
 const authReducer = (
@@ -15,26 +15,24 @@ const authReducer = (
   },
   action: authActionTypes
 ): AuthState => {
-  switch(action.type) {
+  switch (action.type) {
     case AuthActions.AUTH_FETCH_REQUEST:
       return Object.assign({}, state, {
-        isFetching: true
-      })
+        isFetching: true,
+      });
     case AuthActions.AUTH_FETCH_FAILURE:
       return Object.assign({}, state, {
         isFetching: false,
-        error: action.error
-      })
+        error: action.error,
+      });
     case AuthActions.AUTH_FETCH_SUCCESS:
       return Object.assign({}, state, {
         isFetching: false,
-        user: action.user
-      })
+        user: action.user,
+      });
     default:
       return state;
   }
-}
+};
 
-export {
-  authReducer
-}
+export { authReducer };

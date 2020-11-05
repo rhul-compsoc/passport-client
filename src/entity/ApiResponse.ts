@@ -1,16 +1,14 @@
 interface ValidApiResponse<T> {
-  ok: true,
-  data: T
+  ok: true;
+  data: T;
 }
 
 interface InvalidApiResponse {
-  ok: false,
-  message: string,
-  stack: string,
+  ok: false;
+  message: string;
+  stack: string;
 }
 
 type ApiResponse<T> = ValidApiResponse<T> | InvalidApiResponse;
 
-export {
-  ApiResponse, ValidApiResponse, InvalidApiResponse
-}
+export { ApiResponse, ValidApiResponse, InvalidApiResponse };

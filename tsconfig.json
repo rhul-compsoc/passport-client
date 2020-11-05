@@ -5,7 +5,7 @@
     "module": "commonjs",
     "esModuleInterop": true,
     "jsx": "react",
-    "strict": true,
+    "strict": true
   },
   "include": ["src/index.d.ts"]
 }

@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button, Container } from 'react-materialize';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Button, Container } from "react-materialize";
+import { Link } from "react-router-dom";
 
 const HomePage = () => (
   <Container>
@@ -9,8 +9,6 @@ const HomePage = () => (
       <Button>Discord Server Statistics</Button>
     </Link>
   </Container>
-)
+);
 
-export {
-  HomePage
-};
+export { HomePage };
