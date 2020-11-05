@@ -196,7 +196,7 @@ class GuildPage extends Component<Props, State> {
         {this.state.data?.ok === false && (
           <>
             <p>{this.state.data.message}</p>
-            <pre className={styles.error} style={{ overflowX: "scroll" }}>
+            <pre style={{ overflowX: "scroll" }}>
               {this.state.data.stack}
             </pre>
           </>
