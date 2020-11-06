@@ -1,0 +1,1 @@
+export default "/dist/components/Header/compsoc.svg";
