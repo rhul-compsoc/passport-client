@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Icon, Navbar, NavItem } from "react-materialize";
 import { connect, ConnectedProps, DispatchProp } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
-import { RootState } from "../../redux/reducers";
+import type { RootState } from "../../redux/reducers";
 import { getUserDetails, removeUserDetails } from "../../redux/thunks/auth";
-import compsoc from "url:./compsoc.svg";
+import compsoc from "./compsoc.svg";
 
 const mapState = (state: RootState) => ({
   auth: state.auth,
@@ -24,7 +24,7 @@ class Header extends Component<Props> {
   }
   login() {
     window.location.href =
-      process.env.API_URL +
+      import.meta.env.SNOWPACK_PUBLIC_API_URL +
       "/login/discord?return=" +
       encodeURIComponent(window.location.href);
   }

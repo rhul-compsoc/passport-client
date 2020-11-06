@@ -1,4 +1,4 @@
-import { ClientUserConnection } from "./ClientUserConnection";
+import type { ClientUserConnection } from "./ClientUserConnection";
 
 interface ClientUser {
   id: string;

@@ -1,4 +1,4 @@
-import { ClientUser } from "../../entity/ClientUser";
+import type { ClientUser } from "../../entity/ClientUser";
 import { AuthActions, authActionTypes } from "../actions/auth";
 
 interface AuthState {

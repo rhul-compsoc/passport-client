@@ -1,13 +1,13 @@
-import { Action, Dispatch } from "redux";
-import { ThunkAction } from "redux-thunk";
-import { ClientUser } from "../../entity/ClientUser";
+import fetch from "isomorphic-fetch";
+import type { Action, Dispatch } from "redux";
+import type { ThunkAction } from "redux-thunk";
+import type { ClientUser } from "../../entity/ClientUser";
 import {
   authFetchFailure,
   authFetchRequest,
-  authFetchSuccess,
+  authFetchSuccess
 } from "../actions/auth";
-import { RootState } from "../reducers";
-import fetch from "isomorphic-fetch";
+import type { RootState } from "../reducers";
 
 const getUserDetails = (): ThunkAction<
   void,
@@ -17,7 +17,7 @@ const getUserDetails = (): ThunkAction<
 > => (dispatch: Dispatch) => {
   dispatch(authFetchRequest());
 
-  fetch(process.env.API_URL + "/login/info", { credentials: "include" })
+  fetch(import.meta.env.SNOWPACK_PUBLIC_API_URL + "/login/info", { credentials: "include" })
     .then((res) => res.json())
     .then((user?: ClientUser) => dispatch(authFetchSuccess(user)))
     .catch((err) => {
@@ -34,7 +34,7 @@ const removeUserDetails = (): ThunkAction<
 > => (dispatch: Dispatch) => {
   dispatch(authFetchRequest());
 
-  fetch(process.env.API_URL + "/login/logout", { credentials: "include" })
+  fetch(import.meta.env.SNOWPACK_PUBLIC_API_URL + "/login/logout", { credentials: "include" })
     .then(() => dispatch(authFetchSuccess(null)))
     .catch((err) => {
       console.log(err);

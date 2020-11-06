@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import { Footer as MaterialiseFooter } from "react-materialize";
 
 const Footer = () => (

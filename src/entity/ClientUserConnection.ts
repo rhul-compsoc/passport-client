@@ -1,4 +1,4 @@
-import { ClientUserConnectionPlatform } from "../enum/ClientUserConnectionPlatform";
+import type { ClientUserConnectionPlatform } from "../enum/ClientUserConnectionPlatform";
 
 interface ClientUserConnection {
   platform: ClientUserConnectionPlatform;

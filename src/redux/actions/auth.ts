@@ -1,4 +1,4 @@
-import { ClientUser } from "../../entity/ClientUser";
+import type { ClientUser } from "../../entity/ClientUser";
 
 enum AuthActions {
   AUTH_FETCH_REQUEST = "AUTH_FETCH_REQUEST",

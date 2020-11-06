@@ -10,7 +10,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import "materialize-css/dist/css/materialize.min.css";
 import "material-icons/iconfont/material-icons.css";
 import "materialize-css";
-import "./scss/index.scss";
+import "./scss/styles.scss";
 import { HashRouter } from "react-router-dom";
 
 const store = createStore(
@@ -26,3 +26,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("app")
 );
+
+import.meta.hot?.accept();

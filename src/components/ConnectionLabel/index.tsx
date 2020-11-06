@@ -1,8 +1,7 @@
-import React, { ReactNode } from "react";
-import { ClientUserConnection } from "../../entity/ClientUserConnection";
+import React from "react";
+import { FaDiscord, FaGithub } from "react-icons/fa";
+import type { ClientUserConnection } from "../../entity/ClientUserConnection";
 import { ClientUserConnectionPlatform } from "../../enum/ClientUserConnectionPlatform";
-import { Header } from "../Header";
-import { FaGithub, FaDiscord } from "react-icons/fa";
 
 const ConnectionLabel = ({
   connection,
