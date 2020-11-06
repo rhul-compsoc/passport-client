@@ -1,0 +1,1 @@
+export default {"SNOWPACK_PUBLIC_API_URL":"https://leo.hexillium.co.uk","MODE":"production","NODE_ENV":"production","SSR":false};
