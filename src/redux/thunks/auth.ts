@@ -17,7 +17,7 @@ const getUserDetails = (): ThunkAction<
 > => (dispatch: Dispatch) => {
   dispatch(authFetchRequest());
 
-  fetch(import.meta.env.SNOWPACK_PUBLIC_API_URL + "/login/info", { credentials: "include" })
+  fetch(process.env.API_URL + "/login/info", { credentials: "include" })
     .then((res) => res.json())
     .then((user?: ClientUser) => dispatch(authFetchSuccess(user)))
     .catch((err) => {
@@ -34,7 +34,7 @@ const removeUserDetails = (): ThunkAction<
 > => (dispatch: Dispatch) => {
   dispatch(authFetchRequest());
 
-  fetch(import.meta.env.SNOWPACK_PUBLIC_API_URL + "/login/logout", { credentials: "include" })
+  fetch(process.env.API_URL + "/login/logout", { credentials: "include" })
     .then(() => dispatch(authFetchSuccess(null)))
     .catch((err) => {
       console.log(err);

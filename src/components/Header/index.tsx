@@ -24,7 +24,7 @@ class Header extends Component<Props> {
   }
   login() {
     window.location.href =
-      import.meta.env.SNOWPACK_PUBLIC_API_URL +
+      process.env.API_URL +
       "/login/discord?return=" +
       encodeURIComponent(window.location.href);
   }

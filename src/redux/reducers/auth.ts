@@ -36,3 +36,4 @@ const authReducer = (
 };
 
 export { authReducer };
+export type { AuthState };

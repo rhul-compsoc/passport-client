@@ -7,8 +7,8 @@ import { rootReducer } from "./redux/reducers";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-import "materialize-css/dist/css/materialize.min.css";
-import "material-icons/iconfont/material-icons.css";
+import "materialize-css/sass/materialize.scss";
+import "material-icons/iconfont/material-icons.scss";
 import "materialize-css";
 import "./scss/styles.scss";
 import { HashRouter } from "react-router-dom";
@@ -27,4 +27,4 @@ ReactDOM.render(
   document.getElementById("app")
 );
 
-import.meta.hot?.accept();
+// import.meta.hot?.accept();

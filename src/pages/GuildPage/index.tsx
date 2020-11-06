@@ -10,6 +10,7 @@ import {
   Table,
 } from "react-materialize";
 import { connect, ConnectedProps } from "react-redux";
+import type { ClientUserConnection } from "../../entity/ClientUserConnection";
 import type { ApiResponse } from "../../entity/ApiResponse";
 import { xpToLevel } from "../../help/xpToLevel";
 import type { RootState } from "../../redux/reducers";
@@ -65,7 +66,7 @@ class GuildPage extends Component<Props, State> {
     this.changeSort = this.changeSort.bind(this);
   }
   componentDidMount() {
-    fetch(import.meta.env.SNOWPACK_PUBLIC_API_URL + "/api/guild/" + this.props.match.params.guild, {
+    fetch(process.env.API_URL + "/api/guild/" + this.props.match.params.guild, {
       credentials: "include",
     })
       .then((data) => data.json())
@@ -152,7 +153,7 @@ class GuildPage extends Component<Props, State> {
                       style={{
                         backgroundColor:
                           this.props.auth.user?.connections.find(
-                            (connection) =>
+                            (connection: ClientUserConnection) =>
                               connection.id === user.memberIDString
                           ) && "rgba(0,0,0,0.04)",
                       }}
