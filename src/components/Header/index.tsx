@@ -2,8 +2,10 @@ import React, { Component } from "react";
 import { Icon, Navbar, NavItem } from "react-materialize";
 import { connect, ConnectedProps, DispatchProp } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
+import { ClientUserConnectionPlatform } from "../../enum/ClientUserConnectionPlatform";
 import type { RootState } from "../../redux/reducers";
 import { getUserDetails, removeUserDetails } from "../../redux/thunks/auth";
+import { LoginLink } from "../LoginLink";
 import compsoc from "./compsoc.svg";
 
 const mapState = (state: RootState) => ({
@@ -21,12 +23,6 @@ class Header extends Component<Props> {
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch(getUserDetails());
-  }
-  login() {
-    window.location.href =
-      process.env.API_URL +
-      "/login/discord?return=" +
-      encodeURIComponent(window.location.href);
   }
   logout() {
     const { dispatch } = this.props;
@@ -54,7 +50,7 @@ class Header extends Component<Props> {
         {this.props.auth.user && (
           <NavLink to="/guild/500612695570120704">Statistics</NavLink>
         )}
-        {!this.props.auth.user && <NavItem onClick={this.login}>Login</NavItem>}
+        {!this.props.auth.user && <LoginLink type={ClientUserConnectionPlatform.DISCORD}><NavItem>Login</NavItem></LoginLink>}
       </Navbar>
     );
   }
