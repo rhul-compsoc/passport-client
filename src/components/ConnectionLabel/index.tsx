@@ -1,34 +1,37 @@
 import React from "react";
-import { FaDiscord, FaGithub } from "react-icons/fa";
+import { FaDiscord, FaGit, FaGithub, FaMicrosoft } from "react-icons/fa";
+import { Chip } from "react-materialize";
 import type { ClientUserConnection } from "../../entity/ClientUserConnection";
 import { ClientUserConnectionPlatform } from "../../enum/ClientUserConnectionPlatform";
 
-const ConnectionLabel = ({
+const ConnectionIcon = ({
+  connection
+}: {
+  connection: ClientUserConnection
+}) => {
+  switch(connection.platform) {
+    case ClientUserConnectionPlatform.DISCORD:
+      return <FaDiscord />;
+    case ClientUserConnectionPlatform.GITHUB:
+      return <FaGithub />;
+    case ClientUserConnectionPlatform.MICROSOFT:
+      return <FaMicrosoft />;
+    default:
+      return null;
+  }
+}
+
+const ConnectionUsername = ({
   connection,
 }: {
   connection: ClientUserConnection;
 }) => {
-  let icon = null;
-  let name = null;
-
   switch (connection.platform) {
     case ClientUserConnectionPlatform.DISCORD:
-      icon = <FaDiscord />;
-      name = connection.username + "#" + connection.discriminator;
-      break;
-    case ClientUserConnectionPlatform.GITHUB:
-      icon = <FaGithub />;
-      name = connection.displayName || connection.username;
-      break;
+      return <span>{connection.username + "#" + connection.discriminator}</span>;
     default:
-      name = connection.id;
+      return <span>{connection.username}</span>;
   }
+}
 
-  return (
-    <span>
-      {icon} {name}
-    </span>
-  );
-};
-
-export { ConnectionLabel };
+export { ConnectionIcon, ConnectionUsername };

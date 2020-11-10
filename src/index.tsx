@@ -27,4 +27,4 @@ ReactDOM.render(
   document.getElementById("app")
 );
 
-// import.meta.hot?.accept();
+module.hot?.accept();

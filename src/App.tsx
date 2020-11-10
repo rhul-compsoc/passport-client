@@ -5,6 +5,7 @@ import { GuildPage } from "./pages/GuildPage";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
 import { Helmet } from "react-helmet";
+import { AccountPage } from "./pages/AccountPage";
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
         />
         <Switch>
           <Route exact path="/guild/:guild" component={GuildPage} />
+          <Route exact path="/account" component={AccountPage} />
           <Route exact path="/" component={HomePage} />
           <Route path="*" component={NotFoundPage} />
         </Switch>

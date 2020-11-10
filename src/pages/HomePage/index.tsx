@@ -8,6 +8,9 @@ const HomePage = () => (
     <Link to="/guild/500612695570120704">
       <Button>Discord Server Statistics</Button>
     </Link>
+    <Link to="/account">
+      <Button>My Account</Button>
+    </Link>
   </Container>
 );
 
