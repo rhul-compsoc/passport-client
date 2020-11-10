@@ -6,7 +6,7 @@ import {
   Table
 } from "react-materialize";
 import { connect, ConnectedProps } from "react-redux";
-import { ConnectionIcon, ConnectionLabel, ConnectionUsername } from "../../components/ConnectionLabel";
+import { ConnectionIcon, ConnectionUsername } from "../../components/ConnectionLabel";
 import { LoginLink } from "../../components/LoginLink";
 import { ClientUserConnectionPlatform } from "../../enum/ClientUserConnectionPlatform";
 import type { RootState } from "../../redux/reducers";

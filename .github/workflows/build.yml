@@ -1,4 +1,4 @@
-name: Snowpack Publish
+name: Webpack Publish
 
 on: push
 
