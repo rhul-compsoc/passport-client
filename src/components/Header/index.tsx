@@ -36,9 +36,9 @@ const Header = () => {
       <NavItem href="#">Search</NavItem>
       {
         loading || !data || data.currentUser === null ?
-        <NavItem href={`${process.env.API_URL}/login/redirect`}>Log in</NavItem> :
+        <NavItem href={`${process.env.API_URL}/login/redirect?return=${encodeURIComponent(window.location.href)}`}>Log in</NavItem> :
         [
-          <NavItem key="1" href={`${process.env.API_URL}/login/logout`}>Log out of {data.currentUser.username}#{data.currentUser.discrim}</NavItem>,
+          <NavItem key="1" href={`${process.env.API_URL}/login/logout?return=${encodeURIComponent(window.location.href)}`}>Log out of {data.currentUser.username}#{data.currentUser.discrim}</NavItem>,
           <NavLink key="2" to="/guild">Guilds</NavLink>
         ]
       }
