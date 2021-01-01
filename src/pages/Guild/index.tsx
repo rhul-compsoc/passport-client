@@ -48,6 +48,8 @@ const GuildPage = ({ match }: RouteComponentProps<MatchParams>) => {
 
   return (
     <Container>
+      <h1>Guild Information</h1>
+
       {loading && (
         <Centre>
           <Preloader active size="big" />
@@ -56,12 +58,12 @@ const GuildPage = ({ match }: RouteComponentProps<MatchParams>) => {
 
       {data && (
         <>
-          <h1>{guild.guildName}</h1>
+          <h2>{guild.guildName}</h2>
 
-          <h2>Options</h2>
+          <h3>Options</h3>
           <Link to={`/guild/${match.params.guildId}/game/${data.currentUser.memberId}`}><Button>Manage Game Connections</Button></Link>
 
-          <h2>Leaderboard</h2>
+          <h3>Leaderboard</h3>
           <Button onClick={() => setMeasure("xpTotal")}>Sort by XP</Button>
           <Button onClick={() => setMeasure("numMessages")}>
             Sort by Messages
