@@ -2,6 +2,8 @@ import { useQuery, gql } from "@apollo/client";
 import React from "react";
 import { Icon, Navbar, NavItem } from "react-materialize";
 import { Link, NavLink } from "react-router-dom";
+import compsoc from './compsoc.svg'
+import styles from './index.module.scss';
 
 const USER_DETAILS = gql`
   query GetCurrentUserDetails {
@@ -26,7 +28,7 @@ const Header = () => {
       centerChildren
       brand={
         <Link className="brand-logo" to="/">
-          passport2
+          <img src={compsoc} className={styles.logo} />
         </Link>
       }
       menuIcon={<Icon>menu</Icon>}
