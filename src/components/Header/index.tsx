@@ -33,7 +33,6 @@ const Header = () => {
       }
       menuIcon={<Icon>menu</Icon>}
     >
-      <NavItem href="#">Search</NavItem>
       {
         loading || !data || data.currentUser === null ?
         <NavItem href={`${process.env.API_URL}/login/redirect?return=${encodeURIComponent(window.location.href)}`}>Log in</NavItem> :
