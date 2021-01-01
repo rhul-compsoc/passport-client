@@ -2,6 +2,3 @@ demo/
 node_modules/
 dist/
 config.yaml
-
-# It's not READY yet!!
-.github/workflows/build.yml
