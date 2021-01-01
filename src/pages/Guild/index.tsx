@@ -58,8 +58,8 @@ const GuildPage = ({ match }: RouteComponentProps<MatchParams>) => {
         <>
           <h1>{guild.guildName}</h1>
 
-          {/* <h2>Options</h2>
-          <Link to={`/guild/${match.params.guildId}/games`}><Button>Manage Game Connections</Button></Link> */}
+          <h2>Options</h2>
+          <Link to={`/guild/${match.params.guildId}/game/${data.currentUser.memberId}`}><Button>Manage Game Connections</Button></Link>
 
           <h2>Leaderboard</h2>
           <Button onClick={() => setMeasure("xpTotal")}>Sort by XP</Button>

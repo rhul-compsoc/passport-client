@@ -14,6 +14,7 @@ import { Layout } from "./components/Layout";
 import { GuildPage } from "./pages/Guild";
 import { GuildListPage } from "./pages/GuildList";
 import { HomePage } from "./pages/Home";
+import { GuildGamePage } from "./pages/GuildGame";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
@@ -53,6 +54,7 @@ const App = () => {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/guild" component={GuildListPage} />
             <Route exact path="/guild/:guildId" component={GuildPage} />
+            <Route exact path="/guild/:guildId/game/:memberId" component={GuildGamePage} />
           </Switch>
         </Layout>
       </HashRouter>
