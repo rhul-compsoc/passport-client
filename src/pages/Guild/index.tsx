@@ -34,7 +34,7 @@ interface MatchParams {
   guildId: string;
 }
 
-type Measures = keyof User
+type Measures = keyof User;
 
 const GuildPage = ({ match }: RouteComponentProps<MatchParams>) => {
   const { loading, data } = useQuery(GUILD_INFO, {
@@ -44,8 +44,7 @@ const GuildPage = ({ match }: RouteComponentProps<MatchParams>) => {
   });
   const guild = data?.guild as Guild;
 
-  const [measure, setMeasure] = useState<Measures>('numMessages')
-
+  const [measure, setMeasure] = useState<Measures>("numMessages");
 
   return (
     <Container>
@@ -63,9 +62,13 @@ const GuildPage = ({ match }: RouteComponentProps<MatchParams>) => {
           <Link to={`/guild/${match.params.guildId}/games`}><Button>Manage Game Connections</Button></Link> */}
 
           <h2>Leaderboard</h2>
-          <Button onClick={() => setMeasure('xpTotal')}>Sort by XP</Button>
-          <Button onClick={() => setMeasure('numMessages')}>Sort by Messages</Button>
-          <Button onClick={() => setMeasure('booleanScore')}>Sort by Boolean Algebra Score</Button>
+          <Button onClick={() => setMeasure("xpTotal")}>Sort by XP</Button>
+          <Button onClick={() => setMeasure("numMessages")}>
+            Sort by Messages
+          </Button>
+          <Button onClick={() => setMeasure("booleanScore")}>
+            Sort by Boolean Algebra Score
+          </Button>
 
           <Table>
             <thead>
@@ -82,16 +85,30 @@ const GuildPage = ({ match }: RouteComponentProps<MatchParams>) => {
             <tbody>
               {/* Need to clone the array for some reason */}
               {[...guild.users]
-                .sort((a, b) => a[measure] > b[measure] ? -1 : 1)
+                .sort((a, b) => (a[measure] > b[measure] ? -1 : 1))
                 .map((user, index) => (
-                  <tr key={user.memberId} className={combineStyles(data.currentUser.memberId === user.memberId && styles.you)}>
+                  <tr
+                    key={user.memberId}
+                    className={combineStyles(
+                      data.currentUser.memberId === user.memberId && styles.you
+                    )}
+                  >
                     <td>
-                      <img src={user.avatarUrl || defaultAvatar(user.discrim) || defaultAvatar(user.memberId)} className={styles.avatar} />
+                      <img
+                        src={
+                          user.avatarUrl ||
+                          defaultAvatar(user.discrim) ||
+                          defaultAvatar(user.memberId)
+                        }
+                        className={styles.avatar}
+                      />
                     </td>
                     <td>{index + 1}</td>
                     <td>
                       {user.username}#{user.discrim}{" "}
-                      {user.nickname && <Chip className={styles.chip}>{user.nickname}</Chip>}
+                      {user.nickname && (
+                        <Chip className={styles.chip}>{user.nickname}</Chip>
+                      )}
                     </td>
                     <td>{xpToLevel(user.xpTotal)}</td>
                     <td>{user.xpTotal}</td>

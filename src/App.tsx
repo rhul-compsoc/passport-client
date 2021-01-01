@@ -3,7 +3,7 @@ import {
   ApolloProvider,
   from,
   HttpLink,
-  InMemoryCache
+  InMemoryCache,
 } from "@apollo/client";
 import { onError } from "@apollo/client/link/error";
 import React from "react";
@@ -22,15 +22,15 @@ const client = new ApolloClient({
       if (graphQLErrors) {
         // TODO: Reactify this!
         graphQLErrors.forEach((error) => {
-          const span = document.createElement('span')
-          span.innerText = error.message
-          M.toast({ html: span.innerHTML, displayLength: 5000 })
-        })
+          const span = document.createElement("span");
+          span.innerText = error.message;
+          M.toast({ html: span.innerHTML, displayLength: 5000 });
+        });
       }
       if (networkError) {
-        const span = document.createElement('span')
-        span.innerText = networkError.message
-        M.toast({ html: span.innerHTML, displayLength: 5000 })
+        const span = document.createElement("span");
+        span.innerText = networkError.message;
+        M.toast({ html: span.innerHTML, displayLength: 5000 });
       }
     }),
     new HttpLink({

@@ -39,10 +39,8 @@ const GuildListPage = () => {
           <Row key={guild.guildId}>
             <Col l={2} m={3} s={6}>
               <Card
-                actions={[
-                  <Link to={`/guild/${guild.guildId}`}>View</Link>,
-                ]}
-                header={<CardTitle image={guild.avatarUrl || ''} />}
+                actions={[<Link to={`/guild/${guild.guildId}`}>View</Link>]}
+                header={<CardTitle image={guild.avatarUrl || ""} />}
               >
                 <span className="card-title">{guild.guildName}</span>
               </Card>

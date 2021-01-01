@@ -2,8 +2,8 @@ import { useQuery, gql } from "@apollo/client";
 import React from "react";
 import { Icon, Navbar, NavItem } from "react-materialize";
 import { Link, NavLink } from "react-router-dom";
-import compsoc from './compsoc.svg'
-import styles from './index.module.scss';
+import compsoc from "./compsoc.svg";
+import styles from "./index.module.scss";
 
 const USER_DETAILS = gql`
   query GetCurrentUserDetails {
@@ -13,14 +13,14 @@ const USER_DETAILS = gql`
       memberId
     }
   }
-`
+`;
 
 const Header = () => {
   const { loading, data } = useQuery(USER_DETAILS, {
     variables: {
-      guildId: process.env.DEFAULT_GUILD
-    }
-  })
+      guildId: process.env.DEFAULT_GUILD,
+    },
+  });
 
   return (
     <Navbar
@@ -33,14 +33,29 @@ const Header = () => {
       }
       menuIcon={<Icon>menu</Icon>}
     >
-      {
-        loading || !data || data.currentUser === null ?
-        <NavItem href={`${process.env.API_URL}/login/redirect?return=${encodeURIComponent(window.location.href)}`}>Log in</NavItem> :
+      {loading || !data || data.currentUser === null ? (
+        <NavItem
+          href={`${
+            process.env.API_URL
+          }/login/redirect?return=${encodeURIComponent(window.location.href)}`}
+        >
+          Log in
+        </NavItem>
+      ) : (
         [
-          <NavItem key="1" href={`${process.env.API_URL}/login/logout?return=${encodeURIComponent(window.location.href)}`}>Log out of {data.currentUser.username}#{data.currentUser.discrim}</NavItem>,
-          <NavLink key="2" to="/guild">Guilds</NavLink>
+          <NavItem
+            key="1"
+            href={`${
+              process.env.API_URL
+            }/login/logout?return=${encodeURIComponent(window.location.href)}`}
+          >
+            Log out of {data.currentUser.username}#{data.currentUser.discrim}
+          </NavItem>,
+          <NavLink key="2" to="/guild">
+            Guilds
+          </NavLink>,
         ]
-      }
+      )}
     </Navbar>
   );
 };

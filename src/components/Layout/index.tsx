@@ -1,7 +1,7 @@
-import React, { ReactNode } from "react"
+import React, { ReactNode } from "react";
 import { Footer } from "../Footer";
-import { Header } from "../Header"
-import styles from './index.module.scss';
+import { Header } from "../Header";
+import styles from "./index.module.scss";
 
 const Layout = ({ children }: { children: ReactNode }) => (
   <div className={styles.body}>
@@ -9,8 +9,6 @@ const Layout = ({ children }: { children: ReactNode }) => (
     <main className={styles.main}>{children}</main>
     <Footer />
   </div>
-)
+);
 
-export {
-  Layout
-}
+export { Layout };
