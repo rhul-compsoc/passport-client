@@ -35,25 +35,16 @@ const Header = () => {
       menuIcon={<Icon>menu</Icon>}
     >
       {loading || !data || data.currentUser === null ? (
-        <NavItem
-          href={getLoginLink()}
-        >
-          Log in via Discord
-        </NavItem>
+        <NavItem href={getLoginLink()}>Log in via Discord</NavItem>
       ) : (
-        [
-          <NavItem
-            key="1"
-            href={`${
-              process.env.API_URL
-            }/login/logout?return=${encodeURIComponent(window.location.href)}`}
-          >
-            Log out of {data.currentUser.username}#{data.currentUser.discrim}
-          </NavItem>,
-          <NavLink key="2" to="/guild">
-            Guilds
-          </NavLink>,
-        ]
+        <NavItem
+          key="1"
+          href={`${
+            process.env.API_URL
+          }/login/logout?return=${encodeURIComponent(window.location.href)}`}
+        >
+          Log out of {data.currentUser.username}#{data.currentUser.discrim}
+        </NavItem>
       )}
     </Navbar>
   );
