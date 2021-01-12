@@ -2,6 +2,7 @@ import { useQuery, gql } from "@apollo/client";
 import React from "react";
 import { Icon, Navbar, NavItem } from "react-materialize";
 import { Link, NavLink } from "react-router-dom";
+import { getLoginLink } from "../../help/loginLink";
 import compsoc from "./compsoc.svg";
 import styles from "./index.module.scss";
 
@@ -35,9 +36,7 @@ const Header = () => {
     >
       {loading || !data || data.currentUser === null ? (
         <NavItem
-          href={`${
-            process.env.API_URL
-          }/login/redirect?return=${encodeURIComponent(window.location.href)}`}
+          href={getLoginLink()}
         >
           Log in
         </NavItem>

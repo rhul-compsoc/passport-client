@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import React from "react";
 import {
+  Button,
   Card,
   CardTitle,
   Col,
@@ -11,6 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import { Guild } from "../../../types/gql";
 import { Centre } from "../../components/Centre";
+import { getLoginLink } from "../../help/loginLink";
 
 const GUILD_LIST = gql`
   query GetCurrentGuildList {
@@ -27,11 +29,22 @@ const GuildListPage = () => {
 
   return (
     <Container>
-      <h1>My Servers</h1>
-      {loading && (
+      <h1>Passport</h1>
+      <p>
+        Welcome to Passport, a service hosted by the Computing Society at Royal
+        Holloway, University of London for accessing backend services.
+      </p>
+
+      {loading ? (
         <Centre>
           <Preloader active size="big" />
         </Centre>
+      ) : data ? (
+        <h2>Guild Information</h2>
+      ) : (
+        <a href={getLoginLink()}>
+          <Button>Login to get started</Button>
+        </a>
       )}
 
       {data &&

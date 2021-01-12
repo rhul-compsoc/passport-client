@@ -12,21 +12,26 @@ import { Route, Switch } from "react-router";
 import { HashRouter } from "react-router-dom";
 import { Layout } from "./components/Layout";
 import { GuildPage } from "./pages/Guild";
-import { GuildListPage } from "./pages/GuildList";
-import { HomePage } from "./pages/Home";
 import { GuildGamePage } from "./pages/GuildGame";
+import { GuildListPage } from "./pages/GuildList";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: from([
     onError(({ graphQLErrors, networkError }) => {
       if (graphQLErrors) {
-        // TODO: Reactify this!
-        graphQLErrors.forEach((error) => {
-          const span = document.createElement("span");
-          span.innerText = error.message;
-          M.toast({ html: span.innerHTML, displayLength: 5000 });
-        });
+        if (
+          graphQLErrors.find(
+            (error) => error?.extensions?.code === "UNAUTHENTICATED"
+          )
+        ) {
+          // TODO: Reactify this!
+          graphQLErrors.forEach((error) => {
+            const span = document.createElement("span");
+            span.innerText = error.message;
+            M.toast({ html: span.innerHTML, displayLength: 5000 });
+          });
+        }
       }
       if (networkError) {
         const span = document.createElement("span");
@@ -51,10 +56,13 @@ const App = () => {
             defaultTitle="Computing Society Passport"
           />
           <Switch>
-            <Route exact path="/" component={HomePage} />
-            <Route exact path="/guild" component={GuildListPage} />
+            <Route exact path="/" component={GuildListPage} />
             <Route exact path="/guild/:guildId" component={GuildPage} />
-            <Route exact path="/guild/:guildId/game/:memberId" component={GuildGamePage} />
+            <Route
+              exact
+              path="/guild/:guildId/game/:memberId"
+              component={GuildGamePage}
+            />
           </Switch>
         </Layout>
       </HashRouter>
