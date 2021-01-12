@@ -38,7 +38,7 @@ const Header = () => {
         <NavItem
           href={getLoginLink()}
         >
-          Log in
+          Log in via Discord
         </NavItem>
       ) : (
         [
