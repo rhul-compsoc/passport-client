@@ -21,8 +21,8 @@ const client = new ApolloClient({
     onError(({ graphQLErrors, networkError }) => {
       if (graphQLErrors) {
         if (
-          graphQLErrors.find(
-            (error) => error?.extensions?.code === "UNAUTHENTICATED"
+          graphQLErrors.every(
+            (error) => error?.extensions?.code !== "UNAUTHENTICATED"
           )
         ) {
           // TODO: Reactify this!
