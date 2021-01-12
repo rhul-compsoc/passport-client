@@ -33,7 +33,7 @@ const client = new ApolloClient({
           });
         }
       }
-      if (networkError && networkError.message.includes('400')) {
+      if (networkError && !networkError.message.includes('400')) {
         const span = document.createElement("span");
         span.innerText = networkError.message;
         M.toast({ html: span.innerHTML, displayLength: 5000 });
