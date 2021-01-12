@@ -14,16 +14,16 @@
     "react-helmet": "^6.1.0",
     "react-materialize": "^3.9.5",
     "react-router": "^5.2.0",
-    "react-router-dom": "^5.2.0"
-  },
-  "devDependencies": {
+    "react-router-dom": "^5.2.0",
     "@types/materialize-css": "^1.0.8",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-helmet": "^6.1.0",
     "@types/react-router": "^5.1.9",
     "@types/react-router-dom": "^5.1.7",
-    "@types/webpack-env": "^1.16.0",
+    "@types/webpack-env": "^1.16.0"
+  },
+  "devDependencies": {
     "css-loader": "^5.0.1",
     "dotenv": "^8.2.0",
     "file-loader": "^6.2.0",
