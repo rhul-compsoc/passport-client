@@ -39,7 +39,7 @@ const Footer = () => (
     </Container>
     <div className="footer-copyright">
       <Container>
-        © 2020 Computing Society at Royal Holloway, University of London
+        © 2021 Computing Society at Royal Holloway, University of London
         <a
           className="grey-text text-lighten-4 right"
           href="https://computingsociety.co.uk/"

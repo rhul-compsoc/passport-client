@@ -37,7 +37,7 @@ const baseConfig = {
     }),
   ],
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    static: path.join(__dirname, "dist"),
     compress: false,
     port: 8000,
     hot: true,
